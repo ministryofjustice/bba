@@ -1,0 +1,11 @@
+= simple_form_for(@acronym) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :acronym
+    = f.input :definition
+    = f.input :url, :hint => 'Full path including protocol (http etc.)'
+    = f.input :info
+
+  .form-actions
+    = f.button :submit

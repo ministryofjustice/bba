@@ -1,0 +1,30 @@
+= link_to 'Explain an Acronym', new_acronym_path, :class => 'btn btn-primary pull-right'
+
+%h1 All your acronyms are belong to us!
+
+%table.table.table-hover.table-bordered
+  %tr
+    %th Acronym
+    %th Definition
+    %th URL
+    / %th Info
+    %th
+
+  - @acronyms.each do |acronym|
+    %tr
+      %td= acronym.acronym
+      %td
+        = surround '"', '"' do
+          = acronym.definition
+        - if acronym.info.present?
+          %p
+            %small
+              %em= acronym.info
+      %td= link_to acronym.url, acronym.url
+      / %td= acronym.info
+      %td
+        =# link_to 'Show', acronym, :class => 'btn btn-mini'
+        = link_to 'Edit', edit_acronym_path(acronym), :class => 'btn btn-mini btn-success'
+        = link_to 'Destroy', acronym, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
+
+%br
