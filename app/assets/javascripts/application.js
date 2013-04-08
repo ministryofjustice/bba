@@ -16,8 +16,10 @@
 
 $(function(){
   $(document).keyup(function (e) {
-    if (e.keyCode === 191) { // forward slash
-      search.focus();
+    if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      if (e.keyCode === 191) { // forward slash
+        search.focus();
+      }
     }
   });
 })
