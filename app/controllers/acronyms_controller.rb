@@ -4,7 +4,7 @@ class AcronymsController < ApplicationController
   def index
     @acronyms = Acronym.all
     if params[:search]
-      @acronyms = Acronym.where(['acronym LIKE ?', "%#{params[:search]}%"])
+      @acronyms = Acronym.where(['acronym iLIKE ?', "%#{params[:search]}%"])
     end
 
     respond_to do |format|
