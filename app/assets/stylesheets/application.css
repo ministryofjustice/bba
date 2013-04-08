@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+table {
+  margin-top: 1em;
+  caption-side: bottom;
+}
