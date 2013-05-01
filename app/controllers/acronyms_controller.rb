@@ -2,10 +2,9 @@ class AcronymsController < ApplicationController
   # GET /acronyms
   # GET /acronyms.json
   def index
-    @acronyms = Acronym.all
-    if params[:search]
-      @acronyms = Acronym.where(['acronym iLIKE ?', "%#{params[:search]}%"])
-    end
+    @acronyms = Acronym.search(params[:search])
+    @defined_acronyms = @acronyms.defined
+    @undefined_acronyms = @acronyms.undefined
 
     respond_to do |format|
       format.html # index.html.erb
