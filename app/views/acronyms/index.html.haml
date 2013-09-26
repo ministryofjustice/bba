@@ -1,6 +1,6 @@
 %a.btn.btn-primary.pull-right{ :href => new_acronym_path }
   %i.icon-plus.icon-white
-  Add an Acronym
+  Add acronym
 
 %p.toggles If you know an acronym, please define it here. If there is an acronym you need to know, please add it so somebody can define it.
 
@@ -12,27 +12,23 @@
     %th Acronym
     %th Definition
     %th URL
-    / %th Info
-    %th
 
   - @acronyms.each do |acronym|
     %tr
-      %td= acronym.acronym
       %td
         - if acronym.definition.present?
-          = surround '"', '"' do
-            = acronym.definition
+          = link_to acronym.acronym, acronym_path(acronym)
+        - else
+          #{acronym.acronym}
+      %td
+        - if acronym.definition.present?
+          = acronym.definition
           - if acronym.info.present?
             %p
               %small
                 %em= acronym.info
         - else
-          = link_to "Define this Acronym", edit_acronym_path(acronym)
+          = link_to "Define #{acronym.acronym}", edit_acronym_path(acronym)
       %td= link_to acronym.url, acronym.url
-      / %td= acronym.info
-      %td
-        =# link_to 'Show', acronym, :class => 'btn btn-mini'
-        = link_to 'Edit', edit_acronym_path(acronym), :class => 'btn btn-mini btn-success'
-        = link_to 'Destroy', acronym, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
 
 %br
