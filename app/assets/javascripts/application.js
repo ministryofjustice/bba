@@ -23,4 +23,10 @@ $(function(){
       }
     }
   });
+
+  $(document).on('click', 'a[rel*=external], a[rel*=help]', function (e) {
+    e.preventDefault();
+    window.open($(this).attr('href'));
+  });
+
 })
