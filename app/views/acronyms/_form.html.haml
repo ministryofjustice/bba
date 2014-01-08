@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :acronym
+    = f.input :acronym, input_html: { value: f.object.acronym || params[:acronym] }
     = f.input :definition
     = f.input :url, :hint => 'Full path including protocol (http etc.)'
     = f.input :info, :hint => 'Extra info is useful but not required'

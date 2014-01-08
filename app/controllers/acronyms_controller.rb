@@ -2,10 +2,12 @@ class AcronymsController < ApplicationController
   # GET /acronyms
   # GET /acronyms.json
   def index
-    @acronyms = Acronym.order(:acronym)
+    @acronyms = Acronym
     if params[:search]
       @acronyms = Acronym.where(['acronym iLIKE ?', "%#{params[:search]}%"])
     end
+
+    @acronyms = @acronyms.order(:acronym)
 
     respond_to do |format|
       format.html # index.html.erb

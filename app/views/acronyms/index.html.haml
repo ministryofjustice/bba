@@ -2,29 +2,37 @@
   %i.icon-plus.icon-white
   Add acronym
 
-%p.toggles If you know an acronym, please define it here. If there is an acronym you need to know, please add it so somebody can define it.
+%p If you know an acronym, please define it here. If there is an acronym you need to know, please add it so somebody can define it.
 
-%dl
-  - @acronyms.each do |acronym|
-    %dt
-      - if acronym.definition.present?
-        = link_to acronym.acronym, acronym_path(acronym)
-      - else
-        #{acronym.acronym}
+- if @acronyms.empty?
+  %h1 Oh dear
+  %p
+    Unfortunately #{params[:search]} wasn't found in the big book. Try 
+    = link_to 'adding it', new_acronym_path(:acronym => params[:search])
+    and ask somebody to explain what it is.
 
-    %dd
-      - if acronym.definition.present?
-        %p
-          %em= acronym.definition
-        - if acronym.info.present?
-          %p= acronym.info
-          - if acronym.url.present?
-            %p
-              = link_to acronym.url, :rel => 'external' do
-                More about #{acronym.definition}
-                %i.icon-share
-      - else
-        %p= link_to "Define #{acronym.acronym}", edit_acronym_path(acronym)
+- else
+  %dl
+    - @acronyms.each do |acronym|
+      %dt
+        - if acronym.definition.present?
+          = link_to acronym.acronym, acronym_path(acronym)
+        - else
+          #{acronym.acronym}
+
+      %dd
+        - if acronym.definition.present?
+          %p
+            %em= acronym.definition
+          - if acronym.info.present?
+            %p= acronym.info
+            - if acronym.url.present?
+              %p
+                = link_to acronym.url, :rel => 'external' do
+                  More about #{acronym.definition}
+                  %i.icon-share
+        - else
+          %p= link_to "Define #{acronym.acronym}", edit_acronym_path(acronym)
     
 
 %p
