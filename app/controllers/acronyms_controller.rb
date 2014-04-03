@@ -1,4 +1,9 @@
 class AcronymsController < ApplicationController
+  # GET /define/bba.json
+  def define
+    @acronym = Acronym.define(params[:acronym])
+  end
+
   # GET /acronyms
   # GET /acronyms.json
   def index

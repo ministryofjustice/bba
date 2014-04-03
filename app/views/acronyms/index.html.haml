@@ -34,8 +34,8 @@
         - else
           %p= link_to "Define #{acronym.acronym}", edit_acronym_path(acronym)
     
-
-  %p
-    %small
-      All your acronyms are belong to us! 
-      %a(href="http://bit.ly/12wzRHl") Huh?!
+  - unless params[:search]
+    %p
+      %small
+        All your acronyms are belong to us! 
+        %a(href="http://bit.ly/12wzRHl") Huh?!

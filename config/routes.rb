@@ -1,6 +1,7 @@
 Bba::Application.routes.draw do
   resources :acronyms
 
+  get 'define/:acronym' => 'acronyms#define'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
