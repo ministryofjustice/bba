@@ -1,11 +1,17 @@
-= simple_form_for(@acronym) do |f|
-  = f.error_notification
+- if current_user
+  Signed in as #{current_user.name} #{link_to 'Sign out', signout_path}
+- else
+  = link_to 'Sign in with Twitter', '/auth/twitter'
 
-  .form-inputs
-    = f.input :acronym, input_html: { value: f.object.acronym || params[:acronym] }
-    = f.input :definition
-    = f.input :url, :hint => 'Full path including protocol (http etc.)'
-    = f.input :info, :hint => 'Extra info is useful but not required'
+- if current_user
+  = simple_form_for(@acronym) do |f|
+    = f.error_notification
 
-  .form-actions
-    = f.button :submit
+    .form-inputs
+      = f.input :acronym, input_html: { value: f.object.acronym || params[:acronym] }
+      = f.input :definition
+      = f.input :url, :hint => 'Full path including protocol (http etc.)'
+      = f.input :info, :hint => 'Extra info is useful but not required'
+
+    .form-actions
+      = f.button :submit
