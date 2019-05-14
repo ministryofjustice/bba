@@ -145,8 +145,6 @@ GEM
     rake (12.3.3)
     ruby_parser (3.13.1)
       sexp_processor (~> 4.9)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.2.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -190,8 +188,8 @@ DEPENDENCIES
   omniauth-twitter
   pg
   rails (= 5.2.3)
-  sass-rails (~> 6.0.0)
   rails-controller-testing
+  sassc
   simple_form
   uglifier (>= 1.0.3)
 
