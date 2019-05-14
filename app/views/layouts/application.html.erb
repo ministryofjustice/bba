@@ -9,14 +9,13 @@
 </head>
 <body>
 
-  <div class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href="<%= root_path %>"><span class="hidden-phone">Big Book of Acronyms (</span>BBA<span class="hidden-phone">)</span></a>
-        <form accept-charset="UTF-8" action="<%= acronyms_path %>" class="navbar-search pull-right" method="get">            
-          <input type="text" class="search-query" placeholder="Find an acronym" name="search" id="search" value="<%= params[:search] %>" autofocus />
-        </form>
-        </div>
+  <div class="navbar navbar-dark bg-dark justify-content-between">
+    <div class="container">
+      <a class="navbar-brand" href="<%= root_path %>"><span class="hidden-phone">Big Book of Acronyms (</span>BBA<span class="hidden-phone">)</span></a>
+
+      <form accept-charset="UTF-8" action="<%= acronyms_path %>" class="form-inline" method="get">
+        <input type="text" class="form-control" placeholder="Find an acronym" name="search" id="search" value="<%= params[:search] %>" autofocus />
+      </form>
     </div>
   </div>
 
