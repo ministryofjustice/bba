@@ -7,11 +7,10 @@
   = simple_form_for(@acronym) do |f|
     = f.error_notification
 
-    .form-inputs
-      = f.input :acronym, input_html: { value: f.object.acronym || params[:acronym] }
-      = f.input :definition
-      = f.input :url, :hint => 'Full path including protocol (http etc.)'
-      = f.input :info, :hint => 'Extra info is useful but not required'
+    .form-group
+      = f.input :acronym, input_html: { class: "form-control", value: f.object.acronym || params[:acronym] }
+      = f.input :definition, input_html: { class: "form-control" }
+      = f.input :url, :hint => 'Full path including protocol (http etc.)', input_html: { class: "form-control" }
+      = f.input :info, :hint => 'Extra info is useful but not required', input_html: { class: "form-control" }
 
-    .form-actions
-      = f.button :submit
+    = f.button :submit, class: "btn btn-primary"
