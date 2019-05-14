@@ -192,7 +192,6 @@ DEPENDENCIES
   haml-rails
   jbuilder
   jquery-rails
-  less-rails
   omniauth-twitter
   pg
   rails (= 5.2.3)
@@ -201,3 +200,9 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+
+RUBY VERSION
+   ruby 2.5.0p0
+
+BUNDLED WITH
+   1.16.6
