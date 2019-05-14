@@ -50,7 +50,7 @@ class AcronymsController < ApplicationController
   # POST /acronyms
   # POST /acronyms.json
   def create
-    @acronym = Acronym.new(params[:acronym])
+    @acronym = Acronym.new(acronym_params)
 
     respond_to do |format|
       if @acronym.save
@@ -69,7 +69,7 @@ class AcronymsController < ApplicationController
     @acronym = Acronym.find(params[:id])
 
     respond_to do |format|
-      if @acronym.update_attributes(params[:acronym])
+      if @acronym.update_attributes(acronym_params)
         format.html { redirect_to acronyms_path, notice: 'Acronym was successfully updated.' }
         format.json { head :no_content }
       else
@@ -90,4 +90,9 @@ class AcronymsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def acronym_params
+      params.require(:acronym).permit(:acronym, :definition, :info, :url)
+    end
 end
