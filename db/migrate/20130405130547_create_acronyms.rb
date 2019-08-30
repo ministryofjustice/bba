@@ -1,4 +1,4 @@
-class CreateAcronyms < ActiveRecord::Migration
+class CreateAcronyms < ActiveRecord::Migration[4.2]
   def change
     create_table :acronyms do |t|
       t.string :acronym

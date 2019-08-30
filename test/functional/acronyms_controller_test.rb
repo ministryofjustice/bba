@@ -1,47 +1,47 @@
 require 'test_helper'
 
-class AcronymsControllerTest < ActionController::TestCase
+class AcronymsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @acronym = acronyms(:one)
   end
 
   test "should get index" do
-    get :index
+    get acronyms_url
     assert_response :success
     assert_not_nil assigns(:acronyms)
   end
 
   test "should get new" do
-    get :new
+    get new_acronym_url
     assert_response :success
   end
 
   test "should create acronym" do
     assert_difference('Acronym.count') do
-      post :create, acronym: { acronym: @acronym.acronym, definition: @acronym.definition, info: @acronym.info, url: @acronym.url }
+      post acronyms_url(acronym: { acronym: @acronym.acronym, definition: @acronym.definition, info: @acronym.info, url: @acronym.url })
     end
 
-    assert_redirected_to acronym_path(assigns(:acronym))
+    assert_redirected_to acronyms_path
   end
 
   test "should show acronym" do
-    get :show, id: @acronym
+    get acronym_url(id: @acronym)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @acronym
+    get edit_acronym_url(id: @acronym)
     assert_response :success
   end
 
   test "should update acronym" do
-    put :update, id: @acronym, acronym: { acronym: @acronym.acronym, definition: @acronym.definition, info: @acronym.info, url: @acronym.url }
-    assert_redirected_to acronym_path(assigns(:acronym))
+    put acronym_url(id: @acronym, acronym: { acronym: @acronym.acronym, definition: @acronym.definition, info: @acronym.info, url: @acronym.url })
+    assert_redirected_to acronyms_path
   end
 
   test "should destroy acronym" do
     assert_difference('Acronym.count', -1) do
-      delete :destroy, id: @acronym
+      delete acronym_url(id: @acronym)
     end
 
     assert_redirected_to acronyms_path

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '~> 2.5.0'
+ruby '~> 2.6.3'
 
 gem 'rails', '5.2.3'
 
@@ -11,15 +11,14 @@ gem 'pg'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 6.0.0'
+  gem 'sassc'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'therubyracer'
-  gem 'less-rails'
-  gem 'twitter-bootstrap-rails'
+  gem 'mini_racer'
+  gem 'bootstrap'
 end
 
 gem 'haml-rails'
@@ -43,3 +42,7 @@ gem 'omniauth-twitter'
 
 # To use debugger
 # gem 'debugger'
+
+group :test do
+  gem 'rails-controller-testing'
+end
